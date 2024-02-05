@@ -83,7 +83,6 @@ router.post("/api/sendotp", async (req, res) => {
       expire: Date.now() + 3600000,
       userId: req.body.id,
     });
-    // console.log(otpData);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
     await otpData.save();
     mailer(data, otpcode);
    res.json({ "Success": "OTP Sent Successfully"});
@@ -175,7 +174,7 @@ const mailer = (email, otp) => {
   transporter.sendMail(mailoption, function (error, Info) {
     if (error) {
       console.log(error);
-    } else {v  v
+    } else {
       console.log("Email sent to: " + Info.response);
     }
   });
